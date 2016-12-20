@@ -26,4 +26,5 @@
 					else{checkResultMsg="Too much!"; checkResultColor="warning";}
 			return [checkResultMsg,checkResultColor];
 		}
+	}
 })();
