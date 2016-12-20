@@ -2,7 +2,9 @@
 'use strict'
 
 	angular.module('LunchChecker', ['ngRoute'])
-	.controller('LunchCheckerController', function($scope){	
+	.controller('LunchCheckerController', LunchCheckerController);
+	LunchCheckerController.$inject = ['$scope'];
+	function LunchCheckerController($scope){	
 		$scope.dishes = "";
 		$scope.result = "";
 		$scope.color = "";
@@ -24,5 +26,4 @@
 					else{checkResultMsg="Too much!"; checkResultColor="warning";}
 			return [checkResultMsg,checkResultColor];
 		}
-	});
 })();
