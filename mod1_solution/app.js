@@ -2,7 +2,9 @@
 'use strict'
 
 	angular.module('LunchChecker', ['ngRoute'])
-	.controller('LunchCheckerController', function($scope){	
+	.controller('LunchCheckerController', LunchCheckerController);
+	LunchCheckerController.$inject = ['$scope'];
+	function LunchCheckerController($scope){	
 		$scope.dishes = "";
 		$scope.result = "";
 		$scope.color = "";
@@ -23,6 +25,8 @@
 				else if(dishesCount <=3){checkResultMsg="Enjoy your lunch!"; checkResultColor="success";}
 					else{checkResultMsg="Too much!"; checkResultColor="warning";}
 			return [checkResultMsg,checkResultColor];
-		}
-	});
+		};
+	}
 })();
+//Below is minified code used for testing
+// !function(){"use strict";function a(a){function b(a){var b="",c="",d=a.split(",").filter(function(b){var c=new RegExp(/\w+/);return c.test(b)}).length;return console.log(d),d<=0?(b="Please at least input one dish.",c="error"):d<=3?(b="Enjoy your lunch!",c="success"):(b="Too much!",c="warning"),[b,c]}a.dishes="",a.result="",a.color="",a.displayCheckResult=function(){var c=b(a.dishes);a.result=c[0],a.color=c[1]}}angular.module("LunchChecker",["ngRoute"]).controller("LunchCheckerController",a),a.$inject=["$scope"]}();
